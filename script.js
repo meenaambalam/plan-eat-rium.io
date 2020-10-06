@@ -39,7 +39,8 @@ localStorage.setItem("ingrents");
 $("aside div??").click(function () {
   for (var i = 0; i < ingredients.length; i++) {
     currentIng = ingredents[i] + $("<button>test button</button>");
-    // currentIng.text("arrayvalue") //add array value
+    currentIng.text("arrayvalue"); //add array value
     currentIng.click(function () {});
   }
 });
+s;
