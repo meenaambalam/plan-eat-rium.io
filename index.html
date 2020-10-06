@@ -3,28 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
+    <title>Plan-Eatarium</title>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </head>
+
 <body>
 
-    <header> <!-- title of the app -->
-       
+    <header class="left">
+        <!-- title of the app -->
+
         <h1>Plan-Eat-rium</h1>
-    
+
     </header>
-    
-    <div> <!--holds the search bar for adding ingredients-->
+
+    <div class="left">
+        <!--holds the search bar for adding ingredients-->
         <p>Search by Ingredient: </p>
         <form type="text"></form>
-        
-        <div id="search"><!-- the search button --></div>
+
+        <div id="search">
+            <!-- the search button -->
+        </div>
 
     </div>
-    <aside><!-- left margin -->
+    <aside class="left"><!-- left margin -->
 
         <!-- ingredient should populate in the aside -->
     <p id=testme2>Name Here</p>
@@ -51,19 +64,116 @@
     <p id=testme12></p>
 
     </aside>
+    <main class="right">
+        <!-- right half of the app -->
 
-    <main><!-- right half of the app -->
+        <div id="recipe book">
+            <!-- container to cycle thru -->
 
-        <div id="recipe book"><!-- container to cycle thru -->
-            
- 
-        <img src="#" alt="recipe photo">
-        <h2 id="recipeTitle"></h2>
-        <p id="recipeDescription"></p>
+
+            <img class="responsive-img" src="#" alt="recipe photo">
+            <h2 id="recipeTitle"></h2>
+            <p id="recipeDescription" class="truncate"></p>
+            <!-- give the class of "flow-text" on hover this will allow user to see full recipe description-->
+
 
         </div>
 
+
         <!-- calendar here -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col s9">
+                    <div class=" card-panel calendar-box green-color center-align">
+                        <div class="row weekly-calendar Monday">
+                            <div class="col s3 day1">
+                                <button class="btn-large brown waves-effect ">Monday</button>
+                            </div>
+                            <div class="col s9 day1 day1Recipe">
+                                <a class="btn btnDay1" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay1" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay1" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay1 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Tuesday">
+                            <div class="col s3 day2 ">
+                                <button class="btn-large brown waves-effect">Tuesday</button>
+                            </div>
+                            <div class="col s9 day2 day2Recipe">
+                                <a class="btn btnDay2" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay2" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay2" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay2 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Wednesday">
+                            <div class="col s3 day3">
+                                <button class="btn-large  brown waves-effect">Wednesday</button>
+                            </div>
+                            <div class="col s9 day3 day3Recipe">
+                                <a class="btn btnDay3" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay3" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay3" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay3 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Thursday">
+                            <div class="col s3 day4">
+                                <button class="btn-large  brown waves-effect">Thursday</button>
+                            </div>
+                            <div class="col s9 day4 day4Recipe">
+                                <a class="btn btnDay4" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay4" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay4" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay4 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Friday">
+                            <div class="col s3 day5 ">
+                                <button class="btn-large brown waves-effect">Friday</button>
+                            </div>
+                            <div class="col s9 day5 day5Recipe">
+                                <a class="btn btnDay5" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay5" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay5" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay5 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Saturday">
+                            <div class="col s3 day6 ">
+                                <button class="btn-large brown waves-effect">Saturday</button>
+                            </div>
+                            <div class="col s9 day6 day6Recipe ">
+                                <a class="btn btnDay6" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay6" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay6" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay7 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Sunday">
+                            <div class="col s3 day7 ">
+                                <button class="btn-large brown waves-effect">Sunday</button>
+                            </div>
+                            <div class="col s9 day7 day7Recipe">
+                                <a class="btn btnDay7" href="#">Recipe1 Name</a>
+                                <a class="btn btnDay7" href="#">Recipe2 Name</a>
+                                <a class="btn btnDay7" href="#">Recipe3 Name</a>
+                                <a class="btn btnDay7 grey" href="#">Clear Recipe</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
@@ -71,7 +181,10 @@
     </main>
 
 
-<script src="script.js"></script>
-</script>
+
+    <script src="script.js"></script>
+    </script>
+
 </body>
+
 </html>
