@@ -1,6 +1,3 @@
-var queryURL = "https://api.edamam.com/search?q=chicken+beef+corn&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
-//var queryURL = "https://api.edamam.com/search?q=" + searchcontenthere + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
-
 var recipeName = $("#testme2")
 var ingredients = $("#testme")
 var recipeName2 = $("#testme3")
@@ -14,12 +11,24 @@ var link1 = $("testme10")
 var link2 = $("testme11")
 var link3 = $("testme12")
 
+var recipeSearch1 = $("#search1")
+var recipeSearch2 = $("#search1")
+var recipeSearch3 = $("#search1")
+var item1 = recipeSearch1.val().trim()
+var item2 = recipeSearch2.val().trim()
+var item3 = recipeSearch3.val().trim()
 
+var searchButton = $("#search-recipes")
+
+
+//var queryURL = "https://api.edamam.com/search?q=" + item1 + "+" //+ recipeSearch2.val().trim() + "+" + recipeSearch3.val().trim()
+ //+ "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
+var queryURL = "https://api.edamam.com/search?q=chicken+beef+corn&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"
 
 var APIkey = "2438d9ac01f49f4467b8f7013aae8da6"
 
-//var searchBar = $("<li> <button id=\"tester\"class=\"btn btn-secondary\">" + citySearch.val() + "</button></li>")
 
+searchButton.on("click", function(){
 
 $.ajax({
     url: queryURL,
@@ -66,12 +75,15 @@ $.ajax({
     var imageURL3 = (response.hits[2].recipe.image)
     var imageBox3 = $("<img src='" + imageURL3 + "'>'");
     image3.append(imageBox3)
-    recipeName3.text(recipe3)
-    
-
-
-
-
-
+    recipeName3.text(recipe3)})
 
 })
+    
+//searchButton.on("click", function(){
+    //console.log(recipeSearch1.val().trim())})
+
+
+
+
+
+
