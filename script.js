@@ -1,3 +1,4 @@
+
 var queryURL =
   "https://api.edamam.com/search?q=chicken&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6";
 
