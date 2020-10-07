@@ -1,6 +1,3 @@
-var queryURL = "https://api.edamam.com/search?q=chicken+beef+corn&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
-//var queryURL = "https://api.edamam.com/search?q=" + searchcontenthere + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
-
 var recipeName = $("#testme2")
 var ingredients = $("#testme")
 var recipeName2 = $("#testme3")
@@ -13,18 +10,28 @@ var image3 = $("#testme9")
 var link1 = $("testme10")
 var link2 = $("testme11")
 var link3 = $("testme12")
-
-
+var search1 = $("#Ingredient1")
+var search2 = $("#Ingredient2")
+var search3 = $("#Ingredient3")
 
 var APIkey = "2438d9ac01f49f4467b8f7013aae8da6"
 
-//var searchBar = $("<li> <button id=\"tester\"class=\"btn btn-secondary\">" + citySearch.val() + "</button></li>")
+$("#search-recipes").on("click", 
+
+
+function runSearch() {
+
+var queryURL = "https://api.edamam.com/search?q=" + search1.val() + "+" + search2.val() + "+" + search3.val() + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
 
 
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(response){
+    console.log(response)
+    image1.empty()
+    image2.empty()
+    image3.empty()
     console.log(response);
     var recipe = JSON.stringify(response.hits[0].recipe.label)
     var list = (response.hits[0].recipe.ingredientLines)
@@ -68,10 +75,6 @@ $.ajax({
     image3.append(imageBox3)
     recipeName3.text(recipe3)
     
+    
 
-
-
-
-
-
-})
+})})
