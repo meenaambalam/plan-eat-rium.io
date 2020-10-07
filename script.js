@@ -21,7 +21,7 @@ $("#search-recipes").on("click",
 
 function runSearch() {
 
-var queryURL = "https://api.edamam.com/search?q=" + search1.val() + "+" + search2.val() + "+" + search3.val() + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
+var queryURL = "https://api.edamam.com/search?q=" + search1.val().trim() + "+" + search2.val().trim() + "+" + search3.val().trim() + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
 
 
 $.ajax({
