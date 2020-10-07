@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -52,22 +53,6 @@
             </form>
         </div>
     </div>
-    
-    <div class="row">
-        <div class="col-md-3">
-            <form>
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" id= "Ingredient3" placeholder="Enter Ingredient Here">
-                    <div class="input-group-append">
-                        
-                    </div>
-                </div>
-            </form>
-        </div>
-    <button class="btn btn-info" type="button" id="search-recipes"> Search
-    </button></div>
-    <aside class="left"><!-- left margin -->
-
         <!-- ingredient should populate in the aside -->
     <p id=testme2>Name Here</p>
     <p>Ingredient List Here:
@@ -104,88 +89,119 @@
         <div class="container">
             <div class="row">
                 <div class="col s9">
-                    <div class=" card-panel calendar-box green-color center-align">
+                    <div class=" card-panel calendar-box center-align">
                         <div class="row weekly-calendar Monday">
                             <div class="col s3 day1">
-                                <button class="btn-large brown waves-effect ">Monday</button>
+                                <button class="btn days brown waves-effect " value="mon">MON</button>
                             </div>
                             <div class="col s9 day1 day1Recipe">
-                                <a class="btn btnDay1" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay1" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay1" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay1 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn mon1" id="recipeBtn1" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="1"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn mon2" id="recipeBtn2" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="2"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn mon3" id="recipeBtn3" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="3"><i class="large material-icons">cancel</i></button>
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Tuesday">
                             <div class="col s3 day2 ">
-                                <button class="btn-large brown waves-effect">Tuesday</button>
+                                <button class="btn days brown waves-effect" value="tue">TUE</button>
                             </div>
                             <div class="col s9 day2 day2Recipe">
-                                <a class="btn btnDay2" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay2" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay2" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay2 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn tue1" id="recipeBtn4" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="4"><i class="large material-icons" value="4">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn tue2" id="recipeBtn5" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="5"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn tue3" id="recipeBtn6" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="6"><i class="large material-icons">cancel</i></button>
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Wednesday">
                             <div class="col s3 day3">
-                                <button class="btn-large  brown waves-effect">Wednesday</button>
+                                <button class="btn days brown waves-effect" value="wed">WED</button>
                             </div>
                             <div class="col s9 day3 day3Recipe">
-                                <a class="btn btnDay3" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay3" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay3" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay3 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn wed1" id="recipeBtn7" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="7"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn wed2" id="recipeBtn8" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="8"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn wed3" id="recipeBtn9" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="9"><i class="large material-icons">cancel</i></button>
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Thursday">
                             <div class="col s3 day4">
-                                <button class="btn-large  brown waves-effect">Thursday</button>
+                                <button class="btn days brown waves-effect" value="thu">THU</button>
                             </div>
                             <div class="col s9 day4 day4Recipe">
-                                <a class="btn btnDay4" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay4" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay4" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay4 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn thu1" id="recipeBtn10" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="10"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn thu2" id="recipeBtn11" href="#" value="11">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="11"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn thu3" id="recipeBtn12" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="12"><i class="large material-icons">cancel</i></button>
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Friday">
                             <div class="col s3 day5 ">
-                                <button class="btn-large brown waves-effect">Friday</button>
+                                <button class="btn days brown waves-effect" value="fri">FRI</button>
                             </div>
                             <div class="col s9 day5 day5Recipe">
-                                <a class="btn btnDay5" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay5" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay5" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay5 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn fri1" id="recipeBtn13" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="13"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn fri2" id="recipeBtn14" href="#" >Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="14"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn fri3" id="recipeBtn15" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="15"><i class="large material-icons">cancel</i></button>
+                                <br>
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Saturday">
                             <div class="col s3 day6 ">
-                                <button class="btn-large brown waves-effect">Saturday</button>
+                                <button class="btn days brown waves-effect" value="sat">SAT</button>
                             </div>
                             <div class="col s9 day6 day6Recipe ">
-                                <a class="btn btnDay6" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay6" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay6" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay7 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn sat1" id="recipeBtn16" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="16"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn sat2" id="recipeBtn17" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="17"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn sat3" id="recipeBtn18" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="18"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <!--<a class="btn btnDay7 grey" href="#">Clear Recipe</a>-->
                             </div>
                         </div>
                         <hr>
                         <div class="row weekly-calendar Sunday">
                             <div class="col s3 day7 ">
-                                <button class="btn-large brown waves-effect">Sunday</button>
+                                <button class="btn days brown waves-effect" value="sun">SUN</button>
                             </div>
                             <div class="col s9 day7 day7Recipe">
-                                <a class="btn btnDay7" href="#">Recipe1 Name</a>
-                                <a class="btn btnDay7" href="#">Recipe2 Name</a>
-                                <a class="btn btnDay7" href="#">Recipe3 Name</a>
-                                <a class="btn btnDay7 grey" href="#">Clear Recipe</a>
+                                <a class="btn recipeBtn sun1" id="recipeBtn19" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="19"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn sun2" id="recipeBtn20" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="20"><i class="large material-icons">cancel</i></button>
+                                <br>
+                                <a class="btn recipeBtn sun3" id="recipeBtn21" href="#">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="21"><i class="large material-icons">cancel</i></button>
                             </div>
                         </div>
                     </div>
