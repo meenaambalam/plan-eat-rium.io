@@ -74,45 +74,30 @@ $(document).ready(function () {
     })
 
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
-        var saveRecipeDetails = {
-            recipeName : carouselRecipeName,
-            recipeLink : carouselRecipeLink
-        }
-        var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
-        localStorage.setItem(saveRecipeDynamicVar, JSON.stringify(saveRecipeDetails));
-    }
+    function saveRecipe_LocalStorage(){
 
-    //function to save the new added recipe in LocalStorage
-    function delRecipe_LocalStorage(delBtnVal){
-        alert("delBtnVa: " + delBtnVal);
-        var delRecipeDynamicVar = "saveRecipeInfo" + delBtnVal;
-        localStorage.removeItem(delRecipeDynamicVar);
+
     }
 
     // function to handle Recipe Button "Click" event
     $(".days").on("click", function(event){
         event.preventDefault();
         event.stopPropagation();
-        var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
-        
-        //dynamically loop through the 3 recipe buttons on the day the user selected
-        //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
+        var day = $(this).val();
+
         for (var i = 1; i < 4; i++) {
-            var carouselRecipeName = "Recipe from Carousel";
-            var carouselRecipeLink = "https://www.epicurious.com/recipes/food/views/irish-channel-corned-beef-and-cabbage-51224220";
+            var chkRecipe = '(".' + day + i + '")';
             if ($('.' + day + i).text() === "Recipe Name"){
                 $('.' + day + i).removeClass("teal");
                 $('.' + day + i).addClass("blue");
-                $('.' + day + i).text(carouselRecipeName);
-                $('.' + day + i).attr("href", carouselRecipeLink);
-                btnValue = $('.' + day + i).attr("value");
-                console.log("recipeBtnValue", btnValue);
+                $('.' + day + i).text("Recipe from Carousel");
+                $('.' + day + i).attr("href", "https://www.epicurious.com/recipes/food/views/irish-channel-corned-beef-and-cabbage-51224220");
 
-                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
+                saveRecipe_LocalStorage(i);
                 break;
             }
-        } 
+        }
+  
     })
 
     //function to handle Delete Button "Click" event to clear the color, recipe name and href information
@@ -122,30 +107,12 @@ $(document).ready(function () {
         event.stopPropagation();
 
         var delBtnVal = $(this).val();
-        $("#recipeBtn"+delBtnVal).text("Recipe Name");
-        $("#recipeBtn"+delBtnVal).removeClass("blue");
-        $("#recipeBtn"+delBtnVal).addClass("teal");
-        $("#recipeBtn"+delBtnVal).attr("href","#");
-
-        delRecipe_LocalStorage(delBtnVal);
+        $('#recipeBtn'+delBtnVal).text("Recipe Name");
+        $('#recipeBtn'+delBtnVal).removeClass("blue");
+        $('#recipeBtn'+delBtnVal).addClass("teal");
+        $('#recipeBtn'+delBtnVal).attr("href","#");
 
     })
 
-    //On the load of the browser, pull the recipe information saved in local storage and display according to the specifications
-    function run_onload(){
 
-        for (let i = 1; i < 21; i++) {
-            var recipeBtn = "saveRecipeInfo" + i;
-
-            if (localStorage.getItem(recipeBtn) !== null) {
-                var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
-                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
-                $("#recipeBtn" + i).addClass("blue");
-                $("#recipeBtn" + i).removeClass("teal");
-                $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
-            }  
-        }
-    }
-
-    run_onload();
 })
