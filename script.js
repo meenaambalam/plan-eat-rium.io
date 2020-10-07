@@ -1,62 +1,27 @@
 
-var queryURL =
-  "https://api.edamam.com/search?q=chicken&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6";
+var recipeName = $("#testme2")
+var ingredients = $("#testme")
+var recipeName2 = $("#testme3")
+var ingredients2 = $("#testme4")
+var recipeName3 = $("#testme5")
+var ingredients3 = $("#testme6")
+var image1 = $("#testme7")
+var image2 = $("#testme8")
+var image3 = $("#testme9")
+var link1 = $("testme10")
+var link2 = $("testme11")
+var link3 = $("testme12")
+var search1 = $("#Ingredient1")
+var search2 = $("#Ingredient2")
+var search3 = $("#Ingredient3")
 
-var recipeName = $("#testme2");
-var ingredients = $("#testme");
-var recipeName2 = $("#testme3");
-var ingredients2 = $("#testme4");
-var recipeName3 = $("#testme5");
-var ingredients3 = $("#testme6");
-var image1 = $("#testme7");
-var image2 = $("#testme8");
-var image3 = $("#testme9");
-var link1 = $("testme10");
-var link2 = $("testme11");
-var link3 = $("testme12");
+var APIkey = "2438d9ac01f49f4467b8f7013aae8da6"
 
-var recipeName = $("#testme2");
-var ingredients = $("#testme");
-var recipeName2 = $("#testme3");
-var ingredients2 = $("#testme4");
-var recipeName3 = $("#testme5");
-var ingredients3 = $("#testme6");
+$("#search-recipes").on("click", 
 
-var APIkey = "2438d9ac01f49f4467b8f7013aae8da6";
+function runSearch() {
 
-//var searchBar = $("<li> <button id=\"tester\"class=\"btn btn-secondary\">" + citySearch.val() + "</button></li>")
-
-$.ajax({
-  url: queryURL,
-  method: "GET",
-}).then(function (response) {
-  console.log(response);
-  var recipe = JSON.stringify(response.hits[0].recipe.label);
-  var list = JSON.stringify(response.hits[0].recipe.ingredientLines);
-  console.log(list);
-  ingredients.text(list);
-  recipeName.text(recipe);
-  var recipe2 = JSON.stringify(response.hits[1].recipe.label);
-  var list2 = JSON.stringify(response.hits[1].recipe.ingredientLines);
-  ingredients2.text(list2);
-  recipeName2.text(recipe2);
-  var recipe3 = JSON.stringify(response.hits[2].recipe.label);
-  var list3 = JSON.stringify(response.hits[2].recipe.ingredientLines);
-  ingredients3.text(list3);
-  recipeName3.text(recipe3);
-});
-
-//setting input to local storage
-
-//included updated id's for acessing dom elemnts
-
-// $("aside div??").click(function () {
-//   for (var i = 0; i < ingredients.length; i++) {
-//     currentIng = ingredents[i] + $("<button>test button</button>");
-//     currentIng.text("arrayvalue"); //add array value
-//     currentIng.click(function () {});
-//   }
-// });
+var queryURL = "https://api.edamam.com/search?q=" + search1.val().trim() + "+" + search2.val().trim() + "+" + search3.val().trim() + "&app_id=2ae93fb0&app_key=2438d9ac01f49f4467b8f7013aae8da6"	
 
 $.ajax({
   url: queryURL,
@@ -120,16 +85,12 @@ https: $.ajax({
 }).then(function (responseTwo) {
   console.log(responseTwo);
 });
-////////////
+
 
 //match recipes to calories //spoonacular api//=q=chicken&apiKey
 var mealURLspoon =
-  "https://api.spoonacular.com/recipes/chicken/information?=q=chicken&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4&includeNutrition=true";
+  "https://api.spoonacular.com/recipes/chicken/information?=q=chicken&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4&includeNutrition=true"; //working
 ("https://api.spoonacular.com/recipes/chicken/information?=q=chicken&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4&includeNutrition=true");
-
-// "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2";
-
-// "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
 
 https: https: var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
 
@@ -139,3 +100,4 @@ https: $.ajax({
 }).then(function (responseThree) {
   console.log(responseThree);
 });
+
