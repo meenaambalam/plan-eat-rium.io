@@ -129,8 +129,6 @@ var mealURLspoon =
 
 // "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2";
 
-// "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-
 https: https: var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
 
 https: $.ajax({
