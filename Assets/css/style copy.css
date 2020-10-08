@@ -1,14 +1,12 @@
 
 .calendar-box{
-    /*width: 425px;*/
-    width: 100%;
+    /*width: 500px;*/
+    width: 450px;
     height: 100%;
 }
 
 .btn {
     margin-bottom: 5px;
-    padding: 0px;
-
 }
 
 .days {
@@ -18,8 +16,5 @@
 }
 
 .s9 {
-    /*align-content: center;*/
-}
-.carousel {
-    height: 1108px;
+    align-content: center;
 }
