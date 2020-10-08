@@ -13,24 +13,19 @@ $(document).ready(function () {
 	var search2 = $("#Ingredient2");
 	var search3 = $("#Ingredient3");
   	//not array but stored
-    //var recipeName = $("#recipeTitle");
-    var recipeName = $("#recipeName");
+    var recipeName = $("#recipeTitle");
     var ingredients = $("#recipeDescription");
-
-    var carousel = document.querySelector(".carouselbox");
 
     //looping function
     function navigate(direction) {
         index = index + direction;
-        console.log(index);
         if (index < 0) {
-            index = 2;
-        } else if (index > 2) {
+            index = 3;
+        } else if (index > 3) {
             index = 0;
         }
 
         currentImage = images[index];
-        console.log(currentImage);
         $(".carouselbox").attr("src", currentImage);
         currentName = recipeNames[index];
         recipeName.text(currentName);
@@ -43,6 +38,7 @@ $(document).ready(function () {
             }
         });
     }
+
     //nav button functionality
     $(".next").on("click", function (event) {
         event.stopPropagation();
@@ -54,8 +50,6 @@ $(document).ready(function () {
         navigate(-1);
     });
 
-    var APIkey = "2438d9ac01f49f4467b8f7013aae8da6"
-
     $("#search-recipes").on("click",
 
         function runSearch() {
@@ -66,7 +60,6 @@ $(document).ready(function () {
                 url: queryURL,
                 method: "GET",
             }).then(function (response) {
-                console.log(response);
                 // empty the arrays
                 recipeNames = [];
                 lists = [];
@@ -77,79 +70,57 @@ $(document).ready(function () {
                 var list1 = (response.hits[0].recipe.ingredientLines);
                 var imageURL1 = (response.hits[0].recipe.image);
                 var linkURL1 = (response.hits[0].recipe.url);
-
-                console.log(recipe1);
-                console.log(list1);
-                console.log(imageURL1);
-
                 var recipe2 = JSON.stringify(response.hits[1].recipe.label);
                 var list2 = (response.hits[1].recipe.ingredientLines);
                 var imageURL2 = (response.hits[1].recipe.image);
                 var linkURL2 = (response.hits[1].recipe.url);
-
-                console.log(recipe2);
-                console.log(list2);
-                console.log(imageURL2);
-
                 var recipe3 = JSON.stringify(response.hits[2].recipe.label);
                 var list3 = (response.hits[2].recipe.ingredientLines);
                 var imageURL3 = (response.hits[2].recipe.image);
                 var linkURL3 = (response.hits[2].recipe.url);
+                var list4 = (response.hits[4].recipe.ingredientLines);
+                var linkURL4 = (response.hits[4].recipe.url);
 
-                console.log(recipe3);
-                console.log(list3);
-                console.log(imageURL3);
 
-                recipeNames = [recipe1, recipe2, recipe3];
-                lists = [list1, list2, list3];
-                images = [imageURL1, imageURL2, imageURL3];
-                links = [linkURL1, linkURL2, linkURL3];           
-
-                console.log("storage array info");
-                console.log(recipeNames);
-                console.log(lists);
-                console.log(images);
-
+              
                 //set the first image?
-                navigate(0);
-            });
+            
 
-        })
+        
 
     //match recipes to calories //spoonacular api//=q=chicken&apiKey
 
     var spoonURL =
       "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
       search1.val().trim() +
-      "+" +
+      ",+" +
       search2.val().trim() +
-      "+" +
+      ",+" +
       search3.val().trim() +
       "&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4";
 
-    var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
 
     $.ajax({
       url: spoonURL,
       method: "GET",
     }).then(function (responseThree) {
-      console.log(responseThree);
-      console.log(responseThree[1].title);
-      console.log(responseThree[1].image); //image
-      var imgSpoon = responseThree[1].image;
-      var titleSpoon = JSON.stringify(responseThree[1].title);
-      var spoonTag = $("<img src='" + imgSpoon + "'>'");
-      var spoonTitle = $("<p>" + titleSpoon + "<p>");
-      spoonApi.html(spoonTitle);
-      // spoonApi.text(titleSpoon);
-      spoonApi.append(spoonTag);
-    });
+        
+      var imgSpoon = responseThree[5].image;
+      var titleSpoon = JSON.stringify(responseThree[5].title);
+      recipeNames = [recipe1, recipe2, recipe3, titleSpoon];
+      lists = [list1, list2, list3, list4];
+      images = [imageURL1, imageURL2, imageURL3, imgSpoon];
+      links = [linkURL1, linkURL2, linkURL3, linkURL4];
+        console.log(recipeNames)
+        navigate(0);
+
+      //images.append(imgSpoon)
+    });})})
   
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue){
+    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
             recipeName : carouselRecipeName,
-            recipeDispName: buttonRecipeName,
             recipeLink : carouselRecipeLink
         }
         var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
@@ -180,9 +151,8 @@ $(document).ready(function () {
                 $('.' + day + i).text(buttonRecipeName);
                 $('.' + day + i).attr("href", carouselRecipeLink);
                 btnValue = $('.' + day + i).attr("value");
-                console.log("recipeBtnValue", btnValue);
 
-                saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue);
+                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
                 break;
             }
         } 
@@ -213,7 +183,7 @@ $(document).ready(function () {
 
             if (localStorage.getItem(recipeBtn) !== null) {
                 var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
-                $("#recipeBtn" + i).text(savedRecipeInfo.recipeDispName);
+                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
                 $("#recipeBtn" + i).addClass("blue");
                 $("#recipeBtn" + i).removeClass("teal");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
@@ -224,4 +194,3 @@ $(document).ready(function () {
 
     run_onload();
 })
-
