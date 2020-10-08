@@ -22,80 +22,48 @@
 
 <body>
 
-    <header class="left">
-        <!-- title of the app -->
-
-        <h1>Plan-Eat-rium</h1>
-
-    </header>
-
-    <div class="row">
-        <div class="col-md-3">
-            <form>
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" id= "Ingredient1" placeholder="Enter Ingredient Here">
-                    <div class="input-group-append">
-                        
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-3">
-            <form>
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" id= "Ingredient2"placeholder="Enter Ingredient Here">
-                    <div class="input-group-append">
-                        
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-<<<<<<< HEAD
-    <aside class="left">
-        <!-- left margin -->
-
-=======
->>>>>>> 96bd1a444f1d714c789bc06515f7533b73844abc
-        <!-- ingredient should populate in the aside -->
-        <p id=testme2>Name Here</p>
-        <p>Ingredient List Here:
-        <ol id=testme>
-
-        </ol>
-        </p>
-        <p id=testme7></p>
-        <p id=testme3>Name Here</p>
-        <p>Ingredient List Here:
-        <ol id=testme4>
-
-        </ol>
-        </p>
-        <p id=testme8></p>
-        <p id=testme11></p>
-        <p id=testme5>Name Here</p>
-        <p>Ingredient List Here:
-        <ol id=testme6>
-
-        </ol>
-        <p id=testme9></p>
-        <p id=testme12></p>
-
-    </aside>
     <main class="right">
         <!-- right half of the app-->
-
-        
-
-
-        <!-- calendar here -->
-
         <div class="container">
-           <div class="row">
-                 <div class="col s6">
+            <div class="row ">
+                <div class="col s12">
+                    <div class="card-panel center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <input placeholder="Ingredient #1" id="Ingredient1" type="text"><br>
+                                <input placeholder="Ingredient #2" id="Ingredient2" type="text"><br>
+                                <input placeholder="Ingredient #3" id="Ingredient3" type="text"><br>
+                            </div>
+                            <div class="col s6">
+                                <h3>Plan-Eat-arium</h3>
+                                <button placeholder="Submit" id="search-recipes" class="btn-large grey">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <div class="card-panel carousel center-align">
+                        <div id="recipe book">
+                            <h2 id="recipeName"></h2><br>
+                            <!-- container to cycle thru -->
+                            <img class="carouselbox responsive-img" alt="carousel">
+                            <br>
+                            <div class="buttons">
+                                <button class="prev">
+                                    ◀ Previous
+                                </button>
+                                <button class="next">
+                                    Next ▶
+                                </button>
+                            </div><br>
+
+                            <ol id="recipeDescription"></ol><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6">
                     <div class=" card-panel calendar-box center-align">
                         <div class="row weekly-calendar Monday">
                             <div class="col s3 day1">
@@ -248,13 +216,7 @@
                 </div>
             </div>
         </div>
-
-    </main>
-
-
-
-    <script src="script.js"></script>
-
+        <script src="script.js"></script>
 </body>
 
 </html>
