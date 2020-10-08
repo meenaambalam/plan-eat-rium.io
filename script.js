@@ -128,7 +128,7 @@ $(document).ready(function () {
 
     var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
 
-    https: $.ajax({
+    $.ajax({
       url: spoonURL,
       method: "GET",
     }).then(function (responseThree) {
@@ -143,11 +143,7 @@ $(document).ready(function () {
       // spoonApi.text(titleSpoon);
       spoonApi.append(spoonTag);
     });
-  }
-);
   
-      /**** Meena's changes for the calendar recipe planner ***/
-
     //function to save the new added recipe in LocalStorage
     function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
