@@ -13,7 +13,8 @@ $(document).ready(function () {
 	var search2 = $("#Ingredient2");
 	var search3 = $("#Ingredient3");
   	//not array but stored
-    var recipeName = $("#recipeTitle");
+    //var recipeName = $("#recipeTitle");
+    var recipeName = $("#recipeName");
     var ingredients = $("#recipeDescription");
 
     var carousel = document.querySelector(".carouselbox");
@@ -75,7 +76,7 @@ $(document).ready(function () {
                 var recipe1 = JSON.stringify(response.hits[0].recipe.label);
                 var list1 = (response.hits[0].recipe.ingredientLines);
                 var imageURL1 = (response.hits[0].recipe.image);
-                var linkURL1 = (response.hits[1].recipe.url);
+                var linkURL1 = (response.hits[0].recipe.url);
 
                 console.log(recipe1);
                 console.log(list1);
@@ -93,7 +94,7 @@ $(document).ready(function () {
                 var recipe3 = JSON.stringify(response.hits[2].recipe.label);
                 var list3 = (response.hits[2].recipe.ingredientLines);
                 var imageURL3 = (response.hits[2].recipe.image);
-                var linkURL3 = (response.hits[1].recipe.url);
+                var linkURL3 = (response.hits[2].recipe.url);
 
                 console.log(recipe3);
                 console.log(list3);
@@ -102,7 +103,7 @@ $(document).ready(function () {
                 recipeNames = [recipe1, recipe2, recipe3];
                 lists = [list1, list2, list3];
                 images = [imageURL1, imageURL2, imageURL3];
-                links = [linkURL1, linkURL2, linkURL3];
+                links = [linkURL1, linkURL2, linkURL3];           
 
                 console.log("storage array info");
                 console.log(recipeNames);
@@ -145,9 +146,10 @@ $(document).ready(function () {
     });
   
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
+    function saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
             recipeName : carouselRecipeName,
+            recipeDispName: buttonRecipeName,
             recipeLink : carouselRecipeLink
         }
         var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
@@ -180,7 +182,7 @@ $(document).ready(function () {
                 btnValue = $('.' + day + i).attr("value");
                 console.log("recipeBtnValue", btnValue);
 
-                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
+                saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue);
                 break;
             }
         } 
@@ -211,7 +213,7 @@ $(document).ready(function () {
 
             if (localStorage.getItem(recipeBtn) !== null) {
                 var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
-                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
+                $("#recipeBtn" + i).text(savedRecipeInfo.recipeDispName);
                 $("#recipeBtn" + i).addClass("blue");
                 $("#recipeBtn" + i).removeClass("teal");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
