@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     // carousel.style.backgroundImage = "url('')";
@@ -9,10 +8,10 @@ $(document).ready(function () {
     var links = [];
     var currentImage;
     var currentLink;
-    var currentName;
+    var currentName = $("#recipeName");
     var search1 = $("#Ingredient1");
-		var search2 = $("#Ingredient2");
-		var search3 = $("#Ingredient3");
+	var search2 = $("#Ingredient2");
+	var search3 = $("#Ingredient3");
   	//not array but stored
     var recipeName = $("#recipeTitle");
     var ingredients = $("#recipeDescription");
@@ -145,8 +144,8 @@ event.preventDefault();
         //dynamically loop through the 3 recipe buttons on the day the user selected
         //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
         for (var i = 1; i < 4; i++) {
-            var carouselRecipeName = "Recipe from Carousel";
-            var carouselRecipeLink = "https://www.epicurious.com/recipes/food/views/irish-channel-corned-beef-and-cabbage-51224220";
+            var carouselRecipeName = currentName;
+            var carouselRecipeLink = currentLink;
             if ($('.' + day + i).text() === "Recipe Name"){
                 $('.' + day + i).removeClass("teal");
                 $('.' + day + i).addClass("blue");
