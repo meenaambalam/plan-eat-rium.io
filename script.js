@@ -13,7 +13,7 @@ $(document).ready(function () {
 	var search2 = $("#Ingredient2");
 	var search3 = $("#Ingredient3");
   	//not array but stored
-    var recipeName = $("#recipeTitle");
+    // var recipeName = $("#recipeTitle");
     var ingredients = $("#recipeDescription");
 
     var carousel = document.querySelector(".carouselbox");
@@ -32,7 +32,7 @@ $(document).ready(function () {
         console.log(currentImage);
         $(".carouselbox").attr("src", currentImage);
         currentName = recipeNames[index];
-        recipeName.text(currentName);
+        $("#recipeName").text(currentName);
         currentLink = links[index];
         $("#recipeDescription").empty();
         $(document).ready(function () {
