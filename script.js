@@ -118,9 +118,10 @@ $(document).ready(function () {
     });})})
   
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
+    function saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
             recipeName : carouselRecipeName,
+            recipeDisplayName : buttonRecipeName,
             recipeLink : carouselRecipeLink
         }
         var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
@@ -138,7 +139,6 @@ $(document).ready(function () {
         event.preventDefault();
         event.stopPropagation();
         var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
-        
         //dynamically loop through the 3 recipe buttons on the day the user selected
         //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
         for (var i = 1; i < 4; i++) {
@@ -151,8 +151,7 @@ $(document).ready(function () {
                 $('.' + day + i).text(buttonRecipeName);
                 $('.' + day + i).attr("href", carouselRecipeLink);
                 btnValue = $('.' + day + i).attr("value");
-
-                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
+                saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue);
                 break;
             }
         } 
@@ -177,20 +176,16 @@ $(document).ready(function () {
 
     //On the load of the browser, pull the recipe information saved in local storage and display according to the specifications
     function run_onload(){
-
         for (let i = 1; i < 21; i++) {
             var recipeBtn = "saveRecipeInfo" + i;
-
             if (localStorage.getItem(recipeBtn) !== null) {
                 var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
-                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
+                $("#recipeBtn" + i).text(savedRecipeInfo.recipeDisplayName);
                 $("#recipeBtn" + i).addClass("blue");
                 $("#recipeBtn" + i).removeClass("teal");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
             }  
         }
     }
-
-
     run_onload();
 })
