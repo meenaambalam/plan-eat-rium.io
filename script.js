@@ -114,9 +114,6 @@ $(document).ready(function () {
             });
 
         })
-      /**** Meena's changes for the calendar recipe planner ***/
-
-
 
     //function to save the new added recipe in LocalStorage
     function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
@@ -130,14 +127,13 @@ $(document).ready(function () {
 
     //function to save the new added recipe in LocalStorage
     function delRecipe_LocalStorage(delBtnVal){
-        alert("delBtnVa: " + delBtnVal);
         var delRecipeDynamicVar = "saveRecipeInfo" + delBtnVal;
         localStorage.removeItem(delRecipeDynamicVar);
     }
 
     // function to handle Recipe Button "Click" event
     $(".days").on("click", function(event){
-event.preventDefault();
+        event.preventDefault();
         event.stopPropagation();
         var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
         
@@ -145,11 +141,12 @@ event.preventDefault();
         //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
         for (var i = 1; i < 4; i++) {
             var carouselRecipeName = currentName;
+            var buttonRecipeName = currentName.substring(0, 20);
             var carouselRecipeLink = currentLink;
             if ($('.' + day + i).text() === "Recipe Name"){
                 $('.' + day + i).removeClass("teal");
                 $('.' + day + i).addClass("blue");
-                $('.' + day + i).text(carouselRecipeName);
+                $('.' + day + i).text(buttonRecipeName);
                 $('.' + day + i).attr("href", carouselRecipeLink);
                 btnValue = $('.' + day + i).attr("value");
                 console.log("recipeBtnValue", btnValue);
