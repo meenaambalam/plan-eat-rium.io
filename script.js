@@ -1,3 +1,4 @@
+$(document).ready(function(){
 
 var recipeName = $("#testme2")
 var ingredients = $("#testme")
@@ -71,33 +72,84 @@ $.ajax({
   recipeName3.text(recipe3);
 });
 
-//mealDB and APi key ~ 1
-
-var mealURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772"; //ingredients
-var mealURLthree =
-  "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"; //list of instructions //str instructions
-//www.themealdb.com/images/media/meals/llcbn01574260722.jpg/preview //this is for a preview image
-
-//call to second API
-https: $.ajax({
-  url: mealURLthree,
-  method: "GET",
-}).then(function (responseTwo) {
-  console.log(responseTwo);
-});
+})
+/**** Meena's changes for the calendar recipe planner ***/
 
 
-//match recipes to calories //spoonacular api//=q=chicken&apiKey
-var mealURLspoon =
-  "https://api.spoonacular.com/recipes/chicken/information?=q=chicken&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4&includeNutrition=true"; //working
-("https://api.spoonacular.com/recipes/chicken/information?=q=chicken&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4&includeNutrition=true");
 
-https: https: var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
+    //function to save the new added recipe in LocalStorage
+    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
+        var saveRecipeDetails = {
+            recipeName : carouselRecipeName,
+            recipeLink : carouselRecipeLink
+        }
+        var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
+        localStorage.setItem(saveRecipeDynamicVar, JSON.stringify(saveRecipeDetails));
+    }
 
-https: $.ajax({
-  url: mealURLspoon,
-  method: "GET",
-}).then(function (responseThree) {
-  console.log(responseThree);
-});
+    //function to save the new added recipe in LocalStorage
+    function delRecipe_LocalStorage(delBtnVal){
+        alert("delBtnVa: " + delBtnVal);
+        var delRecipeDynamicVar = "saveRecipeInfo" + delBtnVal;
+        localStorage.removeItem(delRecipeDynamicVar);
+    }
 
+    // function to handle Recipe Button "Click" event
+    $(".days").on("click", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
+        
+        //dynamically loop through the 3 recipe buttons on the day the user selected
+        //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
+        for (var i = 1; i < 4; i++) {
+            var carouselRecipeName = "Recipe from Carousel";
+            var carouselRecipeLink = "https://www.epicurious.com/recipes/food/views/irish-channel-corned-beef-and-cabbage-51224220";
+            if ($('.' + day + i).text() === "Recipe Name"){
+                $('.' + day + i).removeClass("teal");
+                $('.' + day + i).addClass("blue");
+                $('.' + day + i).text(carouselRecipeName);
+                $('.' + day + i).attr("href", carouselRecipeLink);
+                btnValue = $('.' + day + i).attr("value");
+                console.log("recipeBtnValue", btnValue);
+
+                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
+                break;
+            }
+        } 
+    })
+
+    //function to handle Delete Button "Click" event to clear the color, recipe name and href information
+
+    $(".delBtn").on("click", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var delBtnVal = $(this).val();
+        $("#recipeBtn"+delBtnVal).text("Recipe Name");
+        $("#recipeBtn"+delBtnVal).removeClass("blue");
+        $("#recipeBtn"+delBtnVal).addClass("teal");
+        $("#recipeBtn"+delBtnVal).attr("href","#");
+
+        delRecipe_LocalStorage(delBtnVal);
+
+    })
+
+    //On the load of the browser, pull the recipe information saved in local storage and display according to the specifications
+    function run_onload(){
+
+        for (let i = 1; i < 21; i++) {
+            var recipeBtn = "saveRecipeInfo" + i;
+
+            if (localStorage.getItem(recipeBtn) !== null) {
+                var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
+                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
+                $("#recipeBtn" + i).addClass("blue");
+                $("#recipeBtn" + i).removeClass("teal");
+                $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
+            }  
+        }
+    }
+
+    run_onload();
+})
