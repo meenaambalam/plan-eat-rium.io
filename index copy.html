@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
+    <title>Plan-Eatarium</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+        <div class="container">
+            <div class="row ">
+                <div class="col s12">
+                    <div class="card-panel center-align">
+                        <div class="row">
+                            <div class="col s6">
+                            <input placeholder="Ingredient #1" id="Ingredient1" type="text"><br>
+                            <input placeholder="Ingredient #2" id="Ingredient2" type="text"><br>
+                            <input placeholder="Ingredient #3" id="Ingredient3" type="text"><br>
+                            </div>
+                            <div class="col s6">
+                                <h3>Plan-Eat-arium</h3>
+                                <button placeholder="Submit" id="search-recipes" class="btn-large grey">Search</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <div class="card-panel carousel center-align">
+                        <p>carousel goes here: <br>Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It
+                            has survived not only five centuries, but also the leap into electronic typesetting,
+                            remaining essentially unchanged. It was popularised in the 1960s with the release of
+                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                            software like Aldus PageMaker including versions of Lorem Ipsum.
+
+                            Why do we use it?
+                            It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                            here', making it look like readable English. Many desktop publishing packages and web page
+                            editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will
+                            uncover many web sites still in their infancy. Various versions have evolved over the years,
+                            sometimes by accident, sometimes on purpose (injected humour and the like).
+
+
+                            Where does it come from?
+                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+                            of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock,
+                            a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure
+                            Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the
+                            word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+                            sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+                            Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very
+                            popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+                            amet..", comes from a line in section 1.10.32.
+
+                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
+                            interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
+                            also reproduced in their exact original form, accompanied b </p>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class=" card-panel calendar-box center-align">
+                        <div class="row weekly-calendar Monday">
+                            <div class="col s3 day1">
+                                <button class="btn days brown waves-effect " value="mon">MON</button>
+                            </div>
+                            <div class="col s9 day1 day1Recipe">
+                                <a class="btn recipeBtn mon1" id="recipeBtn1" href="#" value="1">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="1"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Tuesday">
+                            <div class="col s3 day2 ">
+                                <button class="btn days brown waves-effect" value="tue">TUE</button>
+                            </div>
+                            <div class="col s9 day2 day2Recipe">
+                                <a class="btn recipeBtn tue1" id="recipeBtn4" href="#" value="4">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="4"><i class="large material-icons"
+                                        value="4">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Wednesday">
+                            <div class="col s3 day3">
+                                <button class="btn days brown waves-effect" value="wed">WED</button>
+                            </div>
+                            <div class="col s9 day3 day3Recipe">
+                                <a class="btn recipeBtn wed1" id="recipeBtn7" href="#" value="7">Recipe Name</a>
+                                <button class="btn-floating delBtn grey" value="7"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Thursday">
+                            <div class="col s3 day4">
+                                <button class="btn days brown waves-effect" value="thu">THU</button>
+                            </div>
+                            <div class="col s9 day4 day4Recipe">
+                                <a class="btn recipeBtn thu1" id="recipeBtn10" href="#" value="10">Recipe
+                                    Name</a>
+                                <button class="btn-floating delBtn grey" value="10"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Friday">
+                            <div class="col s3 day5 ">
+                                <button class="btn days brown waves-effect" value="fri">FRI</button>
+                            </div>
+                            <div class="col s9 day5 day5Recipe">
+                                <a class="btn recipeBtn fri1" id="recipeBtn13" href="#" value="13">Recipe
+                                    Name</a>
+                                <button class="btn-floating delBtn grey" value="13"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Saturday">
+                            <div class="col s3 day6 ">
+                                <button class="btn days brown waves-effect" value="sat">SAT</button>
+                            </div>
+                            <div class="col s9 day6 day6Recipe ">
+                                <a class="btn recipeBtn sat1" id="recipeBtn16" href="#" value="16">Recipe
+                                    Name</a>
+                                <button class="btn-floating delBtn grey" value="16"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                                <!--<a class="btn btnDay7 grey" href="#">Clear Recipe</a>-->
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row weekly-calendar Sunday">
+                            <div class="col s3 day7 ">
+                                <button class="btn days brown waves-effect" value="sun">SUN</button>
+                            </div>
+                            <div class="col s9 day7 day7Recipe">
+                                <a class="btn recipeBtn sun1" id="recipeBtn19" href="#" value="19">Recipe
+                                    Name</a>
+                                <button class="btn-floating delBtn grey" value="19"><i
+                                        class="large material-icons">cancel</i></button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
