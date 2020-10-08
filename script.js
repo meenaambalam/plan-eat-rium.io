@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     // carousel.style.backgroundImage = "url('')";
@@ -9,7 +10,10 @@ $(document).ready(function () {
     var currentImage;
     var currentLink;
     var currentName;
-    //not array but stored
+    var search1 = $("#Ingredient1");
+		var search2 = $("#Ingredient2");
+		var search3 = $("#Ingredient3");
+  	//not array but stored
     var recipeName = $("#recipeTitle");
     var ingredients = $("#recipeDescription");
 
@@ -111,37 +115,39 @@ $(document).ready(function () {
             });
 
         })
-    /**** Meena's changes for the calendar recipe planner ***/
+      /**** Meena's changes for the calendar recipe planner ***/
+
+
 
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue) {
+    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
-            recipeName: carouselRecipeName,
-            recipeLink: carouselRecipeLink
+            recipeName : carouselRecipeName,
+            recipeLink : carouselRecipeLink
         }
         var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
         localStorage.setItem(saveRecipeDynamicVar, JSON.stringify(saveRecipeDetails));
     }
 
     //function to save the new added recipe in LocalStorage
-    function delRecipe_LocalStorage(delBtnVal) {
+    function delRecipe_LocalStorage(delBtnVal){
         alert("delBtnVa: " + delBtnVal);
         var delRecipeDynamicVar = "saveRecipeInfo" + delBtnVal;
         localStorage.removeItem(delRecipeDynamicVar);
     }
 
     // function to handle Recipe Button "Click" event
-    $(".days").on("click", function (event) {
-        event.preventDefault();
+    $(".days").on("click", function(event){
+event.preventDefault();
         event.stopPropagation();
         var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
-
+        
         //dynamically loop through the 3 recipe buttons on the day the user selected
         //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
         for (var i = 1; i < 4; i++) {
             var carouselRecipeName = "Recipe from Carousel";
             var carouselRecipeLink = "https://www.epicurious.com/recipes/food/views/irish-channel-corned-beef-and-cabbage-51224220";
-            if ($('.' + day + i).text() === "Recipe Name") {
+            if ($('.' + day + i).text() === "Recipe Name"){
                 $('.' + day + i).removeClass("teal");
                 $('.' + day + i).addClass("blue");
                 $('.' + day + i).text(carouselRecipeName);
@@ -152,19 +158,27 @@ $(document).ready(function () {
                 saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
                 break;
             }
-        }
+        } 
     })
 
-    var delBtnVal = $(this).val();
-    $("#recipeBtn" + delBtnVal).text("Recipe Name");
-    $("#recipeBtn" + delBtnVal).removeClass("blue");
-    $("#recipeBtn" + delBtnVal).addClass("teal");
-    $("#recipeBtn" + delBtnVal).attr("href", "#");
+    //function to handle Delete Button "Click" event to clear the color, recipe name and href information
 
-    delRecipe_LocalStorage(delBtnVal);
+    $(".delBtn").on("click", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var delBtnVal = $(this).val();
+        $("#recipeBtn"+delBtnVal).text("Recipe Name");
+        $("#recipeBtn"+delBtnVal).removeClass("blue");
+        $("#recipeBtn"+delBtnVal).addClass("teal");
+        $("#recipeBtn"+delBtnVal).attr("href","#");
+
+        delRecipe_LocalStorage(delBtnVal);
+
+    })
 
     //On the load of the browser, pull the recipe information saved in local storage and display according to the specifications
-    function run_onload() {
+    function run_onload(){
 
         for (let i = 1; i < 21; i++) {
             var recipeBtn = "saveRecipeInfo" + i;
@@ -175,9 +189,10 @@ $(document).ready(function () {
                 $("#recipeBtn" + i).addClass("blue");
                 $("#recipeBtn" + i).removeClass("teal");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
-            }
+            }  
         }
     }
+
 
     run_onload();
 })
