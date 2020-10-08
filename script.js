@@ -115,6 +115,39 @@ $(document).ready(function () {
 
         })
 
+    //match recipes to calories //spoonacular api//=q=chicken&apiKey
+
+    var spoonURL =
+      "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
+      search1.val().trim() +
+      "+" +
+      search2.val().trim() +
+      "+" +
+      search3.val().trim() +
+      "&apiKey=571ff79b4eb14a0fbc553ed4db1d63c4";
+
+    var APIspoon = "571ff79b4eb14a0fbc553ed4db1d63c4";
+
+    https: $.ajax({
+      url: spoonURL,
+      method: "GET",
+    }).then(function (responseThree) {
+      console.log(responseThree);
+      console.log(responseThree[1].title);
+      console.log(responseThree[1].image); //image
+      var imgSpoon = responseThree[1].image;
+      var titleSpoon = JSON.stringify(responseThree[1].title);
+      var spoonTag = $("<img src='" + imgSpoon + "'>'");
+      var spoonTitle = $("<p>" + titleSpoon + "<p>");
+      spoonApi.html(spoonTitle);
+      // spoonApi.text(titleSpoon);
+      spoonApi.append(spoonTag);
+    });
+  }
+);
+  
+      /**** Meena's changes for the calendar recipe planner ***/
+
     //function to save the new added recipe in LocalStorage
     function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
@@ -160,6 +193,7 @@ $(document).ready(function () {
     //function to handle Delete Button "Click" event to clear the color, recipe name and href information
 
     $(".delBtn").on("click", function(event){
+
         event.preventDefault();
         event.stopPropagation();
 
@@ -192,3 +226,4 @@ $(document).ready(function () {
 
     run_onload();
 })
+
