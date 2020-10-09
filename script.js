@@ -11,7 +11,7 @@ $(document).ready(function () {
     var search1 = $("#Ingredient1");
 	var search2 = $("#Ingredient2");
 	var search3 = $("#Ingredient3");
-    var recipeName = $("#recipeTitle");
+    var recipeName = $("#recipeName");
     var ingredients = $("#recipeDescription");
 
     //looping function
@@ -26,7 +26,7 @@ $(document).ready(function () {
         currentImage = images[index];
         $(".carouselbox").attr("src", currentImage);
         currentName = recipeNames[index];
-        recipeName.text(currentName);
+        $("#recipeName").text(currentName);
         currentLink = links[index];
         $("#recipeDescription").empty();
         $(document).ready(function () {
