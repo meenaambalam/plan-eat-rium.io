@@ -1,20 +1,67 @@
+.container {
+    width: 100%;
 
-.calendar-box{
-    /*width: 500px;*/
-    width: 450px;
+}
+.navi{
+    opacity: 0.8;
+    background-image: url("https://live.staticflickr.com/65535/50439998328_f7d55ebfe2_h.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+
+}
+input{
+    backdrop-filter: blur(10px);
+    text-emphasis: bold;
+    font-family: 'PT Sans', sans-serif;
+}
+h1 {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.carousel {
+    height: 1146px;
+    align-content: center;
+    opacity: 0.8;
+    background-image: url("https://img.buzzfeed.com/buzzfeed-static/static/2014-02/enhanced/webdr05/5/15/original-17688-1391632553-27.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto");
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-attachment: scroll;
+    background-size: 900px;
+    background-origin: padding-box;
+}
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+.carouselbox{
+    width: auto;
     height: 100%;
 }
+#recipeDescription {
+    backdrop-filter: blur(10px);
+    text-emphasis: bold;
+    font-family: 'Playfair Display', serif;
 
-.btn {
-    margin-bottom: 5px;
 }
 
+.calendar-box{
+    /* width: 425px; */
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-image: url("https://live.staticflickr.com/65535/50440781221_a0b7212cf6_c.jpg");
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: 900px;
+    
+}
+.btn {
+    margin-bottom: 5px;
+    padding: 2px;
+    font-family: 'PT Sans', sans-serif;
+}
 .days {
     width: 75px;
     height: 50px;
     margin-top: 40%;
-}
-
-.s9 {
-    align-content: center;
 }

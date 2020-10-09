@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    // carousel.style.backgroundImage = "url('')";
     var index = 0;
     var recipeNames = [];
     var lists = [];
@@ -12,7 +11,6 @@ $(document).ready(function () {
     var search1 = $("#Ingredient1");
 	var search2 = $("#Ingredient2");
 	var search3 = $("#Ingredient3");
-  	//not array but stored
     var recipeName = $("#recipeTitle");
     var ingredients = $("#recipeDescription");
 
@@ -20,8 +18,8 @@ $(document).ready(function () {
     function navigate(direction) {
         index = index + direction;
         if (index < 0) {
-            index = 3;
-        } else if (index > 3) {
+            index = 4;
+        } else if (index > 4) {
             index = 0;
         }
 
@@ -80,15 +78,10 @@ $(document).ready(function () {
                 var linkURL3 = (response.hits[2].recipe.url);
                 var list4 = (response.hits[4].recipe.ingredientLines);
                 var linkURL4 = (response.hits[4].recipe.url);
-
-
-              
-                //set the first image?
-            
-
-        
-
-    //match recipes to calories //spoonacular api//=q=chicken&apiKey
+                var recipe5 = JSON.stringify(response.hits[5].recipe.label);
+                var list5 = (response.hits[5].recipe.ingredientLines);
+                var imageURL5 = (response.hits[5].recipe.image);
+                var linkURL5 = (response.hits[5].recipe.url);
 
     var spoonURL =
       "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" +
@@ -107,20 +100,18 @@ $(document).ready(function () {
         
       var imgSpoon = responseThree[5].image;
       var titleSpoon = JSON.stringify(responseThree[5].title);
-      recipeNames = [recipe1, recipe2, recipe3, titleSpoon];
-      lists = [list1, list2, list3, list4];
-      images = [imageURL1, imageURL2, imageURL3, imgSpoon];
-      links = [linkURL1, linkURL2, linkURL3, linkURL4];
-        console.log(recipeNames)
+      recipeNames = [recipe1, recipe2, recipe3, titleSpoon, recipe5];
+      lists = [list1, list2, list3, list4, list5];
+      images = [imageURL1, imageURL2, imageURL3, imgSpoon, imageURL5];
+      links = [linkURL1, linkURL2, linkURL3, linkURL4, linkURL5];
         navigate(0);
-
-      //images.append(imgSpoon)
     });})})
   
     //function to save the new added recipe in LocalStorage
-    function saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue){
+    function saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue){
         var saveRecipeDetails = {
             recipeName : carouselRecipeName,
+            recipeDisplayName : buttonRecipeName,
             recipeLink : carouselRecipeLink
         }
         var saveRecipeDynamicVar = "saveRecipeInfo" + btnValue;
@@ -138,7 +129,6 @@ $(document).ready(function () {
         event.preventDefault();
         event.stopPropagation();
         var day = $(this).val(); //containes mon/tue/wed/thu/fri/sat/sun depending on which day button was clicked
-        
         //dynamically loop through the 3 recipe buttons on the day the user selected
         //if the recipe name is still the placeholder name, then that would be a good button to add the new recipe name from the carousel
         for (var i = 1; i < 4; i++) {
@@ -151,8 +141,7 @@ $(document).ready(function () {
                 $('.' + day + i).text(buttonRecipeName);
                 $('.' + day + i).attr("href", carouselRecipeLink);
                 btnValue = $('.' + day + i).attr("value");
-
-                saveRecipe_LocalStorage(carouselRecipeName, carouselRecipeLink, btnValue);
+                saveRecipe_LocalStorage(carouselRecipeName, buttonRecipeName, carouselRecipeLink, btnValue);
                 break;
             }
         } 
@@ -177,20 +166,16 @@ $(document).ready(function () {
 
     //On the load of the browser, pull the recipe information saved in local storage and display according to the specifications
     function run_onload(){
-
         for (let i = 1; i < 21; i++) {
             var recipeBtn = "saveRecipeInfo" + i;
-
             if (localStorage.getItem(recipeBtn) !== null) {
                 var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
-                $("#recipeBtn" + i).text(savedRecipeInfo.recipeName);
+                $("#recipeBtn" + i).text(savedRecipeInfo.recipeDisplayName);
                 $("#recipeBtn" + i).addClass("blue");
                 $("#recipeBtn" + i).removeClass("teal");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
             }  
         }
     }
-
-
     run_onload();
 })
