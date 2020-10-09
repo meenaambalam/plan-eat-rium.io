@@ -12,9 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Stylesheet-->
     <link rel="stylesheet" href="./Assets/css/style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=PT+Sans:wght@700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    
     <title>Plan-Eatarium</title>
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -22,16 +22,16 @@
 
 <body>
         <div class="container">
-            <div class="row ">
-                <div class="col s12">
-                    <div class="card-panel center-align">
+            <div class="row teal accent-2 teal accent-1">
+                <div class="col s12 teal accent-2">
+                    <div class="card-panel navi center-align teal accent-2">
                         <div class="row">
-                            <div class="col s6">
+                            <div class="col s6 lime-text text-darken-4">
                             <input placeholder="Ingredient #1" id="Ingredient1" type="text"><br>
                             <input placeholder="Ingredient #2" id="Ingredient2" type="text"><br>
                             <input placeholder="Ingredient #3" id="Ingredient3" type="text"><br>
                             </div>
-                            <div class="col s6">
+                            <div class="col s6 lime-text text-darken-4">
                                 <h3><i class = "material-icons teal small">kitchen</i> Plan-Eat-arium</h3>
                                 <button placeholder="Submit" id="search-recipes" class="btn-large grey">Search</button>
                             </div>
@@ -39,15 +39,14 @@
                     </div>
                 </div>
             </div>
-
-
+            
             <div class="row">
-                <div class="col s12 l7">
-                    <div class="card-panel carousel center-align">
+                <div class="col s12 l6 light-green accent-1">
+                    <div class="card-panel carousel center-align lime accent-3">
                         <div id="recipe book">
                             <h3 id="recipeName" class="flow-text"></h3><br>
                             <!-- container to cycle thru -->
-                            <img class="carouselbox responsive-img" src="https://www.imagineriverside.org/ourpages/auto/2020/4/23/37212910/food.jpg" alt="carousel">
+                            <img class="carouselbox circle responsive-img" src="https://www.imagineriverside.org/ourpages/auto/2020/4/23/37212910/food.jpg" alt="Enter 3 Ingredients Above & Hit Search">
                             <br>
                             <div class="buttons">
                                 <button class="prev">
@@ -62,8 +61,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s12 l5">
-                    <div class=" card-panel calendar-box center-align">
+                <div class="col s12 l6 green accent-2">
+                    <div class=" card-panel calendar-box center-align teal accent-3">
                         <div class="row weekly-calendar Monday">
                             <div class="col s3 day1">
                                 <button class="btn days brown waves-effect " value="mon">MON</button>
