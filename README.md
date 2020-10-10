@@ -56,9 +56,9 @@ View with recipes pinned to specific weekday calendar:
 
 ## URL
 
-* The URL of the deployed application - https://josly025.github.io/plan-eat-rium.io/
+* The URL of the deployed application - https://meenaambalam.github.io/plan-eat-rium.io/
 
-* The URL of the GitHub repository - https://github.com/Josly025/plan-eat-rium.io.git
+* The URL of the GitHub repository - https://github.com/meenaambalam/plan-eat-rium.io
 
 
 
