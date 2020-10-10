@@ -136,8 +136,8 @@ $(document).ready(function () {
             var buttonRecipeName = currentName.substring(0, 20);
             var carouselRecipeLink = currentLink;
             if ($('.' + day + i).text() === "Recipe Name"){
-                $('.' + day + i).removeClass("teal");
-                $('.' + day + i).addClass("blue");
+                $('.' + day + i).removeClass("indigo");
+                $('.' + day + i).addClass("red");
                 $('.' + day + i).text(buttonRecipeName);
                 $('.' + day + i).attr("href", carouselRecipeLink);
                 btnValue = $('.' + day + i).attr("value");
@@ -156,8 +156,8 @@ $(document).ready(function () {
 
         var delBtnVal = $(this).val();
         $("#recipeBtn"+delBtnVal).text("Recipe Name");
-        $("#recipeBtn"+delBtnVal).removeClass("blue");
-        $("#recipeBtn"+delBtnVal).addClass("teal");
+        $("#recipeBtn"+delBtnVal).removeClass("red");
+        $("#recipeBtn"+delBtnVal).addClass("indigo");
         $("#recipeBtn"+delBtnVal).attr("href","#");
 
         delRecipe_LocalStorage(delBtnVal);
@@ -171,8 +171,8 @@ $(document).ready(function () {
             if (localStorage.getItem(recipeBtn) !== null) {
                 var savedRecipeInfo = JSON.parse(localStorage.getItem(recipeBtn));
                 $("#recipeBtn" + i).text(savedRecipeInfo.recipeDisplayName);
-                $("#recipeBtn" + i).addClass("blue");
-                $("#recipeBtn" + i).removeClass("teal");
+                $("#recipeBtn" + i).addClass("red");
+                $("#recipeBtn" + i).removeClass("indigo");
                 $("#recipeBtn" + i).attr("href", savedRecipeInfo.recipeLink);
             }  
         }
